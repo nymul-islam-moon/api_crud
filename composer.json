@@ -1,0 +1,20 @@
+{
+    "name": "nymul-islam/api_crud",
+    "description": "First own test crud plugin with api",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Nymul Islam Moon",
+            "email": "nymulislam.webappick@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Api\\Crud\\": "includes/"
+        },
+        "files": []
+    }
+}
