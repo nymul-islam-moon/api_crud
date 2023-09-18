@@ -6,7 +6,10 @@ namespace Api\Crud\Admin;
  */
 class Menu {
 
-    function __construct() {
+    public $contact;
+
+    function __construct( $contact ) {
+        $this->contact = $contact;
         add_action( 'admin_menu', [ $this, 'admin_menu' ] );
     }
 
@@ -15,20 +18,15 @@ class Menu {
         $parent_slug = 'api_crud';
         $capability = 'manage_options';
 
-        add_menu_page( __( 'Api Crud', 'api_crud' ), __( 'ApiCrud', 'api_crud' ), $capability, $parent_slug, [ $this, 'contacts_page' ], 'dashicons-video-alt3' );
+        add_menu_page( __( 'Api Crud', 'api_crud' ), __( 'ApiCrud', 'api_crud' ), $capability, $parent_slug, [ $this->contact, 'plugin_page' ], 'dashicons-video-alt3' );
 
         # Adding sub-menu
-        add_submenu_page( $parent_slug, __( 'All Contacts', 'api_crud' ), __( 'Contacts', 'api_crud' ), $capability, $parent_slug, [ $this, 'contacts_page' ] );
+        add_submenu_page( $parent_slug, __( 'All Contacts', 'api_crud' ), __( 'Contacts', 'api_crud' ), $capability, $parent_slug, [ $this->contact, 'plugin_page' ] );
         add_submenu_page( $parent_slug, __( 'Add Contacts', 'api_crud' ), __( 'Add Contacts', 'api_crud' ), $capability, 'api_crud_add_contacts', [ $this, 'add_contacts_page' ] );
     }
 
     public function add_contacts_page() {
         echo "Hello World";
-    }
-
-    public function contacts_page() {
-        $contacts = new Contacts();
-        $contacts->plugin_page();
     }
 
 }

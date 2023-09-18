@@ -123,5 +123,3 @@ function api_crud() {
 
 # Kick off the plugin
 api_crud();
-
-# https://www.facebook.com/actionentertainmentmovies/

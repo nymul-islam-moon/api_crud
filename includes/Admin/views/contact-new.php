@@ -1,6 +1,6 @@
 <div class="wrap">
     <h1><?php _e('New Contacts', 'api_crud'); ?></h1>
-
+    <?php  var_dump( $this->errors ); ?>
     <form action="" method="POST">
         <table class="form-table">
             <tbody>
